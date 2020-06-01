@@ -20,6 +20,16 @@
 int server_sockfd = 0, client_sockfd = 0;
 ClientList *root, *now;
 
+ClientList *newNode(int sockfd, char* ip) {
+    ClientList *np = (ClientList *)malloc( sizeof(ClientList) );
+    np->data = sockfd;
+    np->prev = NULL;
+    np->link = NULL;
+    strncpy(np->ip, ip, 16);
+    strncpy(np->name, "NULL", 5);
+    return np;
+}
+
 void catch_ctrl_c_and_exit(int sig) {
     ClientList *tmp;
     while (root != NULL) {

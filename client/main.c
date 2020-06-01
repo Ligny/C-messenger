@@ -17,11 +17,11 @@
 #include <pthread.h>
 #include "../struct.h"
 
-volatile sig_atomic_t flag = 0;
+volatile sig_atomic_t flag = 0; // variable modifiable a l'exterieur du programme / objet asyncrone
 int sockfd = 0;
 char nickname[LENGTH_NAME] = {};
 
-void str_trim_lf (char* arr, int length) {
+void str_cut(char* arr, int length) {
     int i;
     for (i = 0; i < length; i++) {
         if (arr[i] == '\n') {
@@ -59,7 +59,7 @@ void send_msg_handler() {
     while (1) {
         str_overwrite_stdout();
         while (fgets(message, LENGTH_MSG, stdin) != NULL) {
-            str_trim_lf(message, LENGTH_MSG);
+            str_cut(message, LENGTH_MSG);
             if (strlen(message) == 0) {
                 str_overwrite_stdout();
             } else {
@@ -79,9 +79,9 @@ int main()
     signal(SIGINT, catch_ctrl_c_and_exit);
     printf("Please enter your name: ");
     if (fgets(nickname, LENGTH_NAME, stdin) != NULL) {
-        str_trim_lf(nickname, LENGTH_NAME);
+        str_cut(nickname, LENGTH_NAME);
     }
-    if (strlen(nickname) < 2 || strlen(nickname) >= LENGTH_NAME-1) {
+    if (strlen(nickname) < 2 || strlen(nickname) >= LENGTH_NAME - 1) {
         printf("\nName must be more than one and less than thirty characters.\n");
         exit(EXIT_FAILURE);
     } sockfd = socket(AF_INET , SOCK_STREAM , 0);
