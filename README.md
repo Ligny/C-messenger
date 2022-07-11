@@ -1,39 +1,47 @@
 # My_chat
 
-- Chat on TCP
+## Description
 
-- Handling multiple clients on server
+The goal of this project is to make a chatting application in C.
+Thanks to the threads the program can take care of several discussions.
 
-![](imgs/myChat_server.png)
+## How to use
 
-![](imgs/myChat_client1.png)
-
-![](imgs/myChat_client2.png)
-
-- Makefile compilation :
+1. Makefile compilation:
 
   ```sh
     make
   ```
-
-    ```sh
+  ```sh
     make re
   ```
-
-    ```sh
+  ```sh
     make clean
   ```
-
-    ```sh
+  ```sh
     make fclean
   ```
        
--  exec serveur : 
+2. execute serveur:
+
   ```sh
     ./server
   ```
+ 
+3. execute client(s):
 
-- exec client :
   ```sh
     ./client
   ```
+  
+## Server
+
+![](imgs/myChat_server.png)
+
+## Client 1
+
+![](imgs/myChat_client1.png)
+
+## Client 2
+
+![](imgs/myChat_client2.png)
