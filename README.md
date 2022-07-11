@@ -4,8 +4,36 @@
 
 - Handling multiple clients on server
 
-- Makefile compilation : make, make re, make clean, make fclean
-       
--  exec serveur : ./serveur
+![](imgs/myChat_server.png)
 
-- exec client : ./client
+![](imgs/myChat_client1.png)
+
+![](imgs/myChat_client2.png)
+
+- Makefile compilation :
+
+  ```sh
+    make
+  ```
+
+    ```sh
+    make re
+  ```
+
+    ```sh
+    make clean
+  ```
+
+    ```sh
+    make fclean
+  ```
+       
+-  exec serveur : 
+  ```sh
+    ./server
+  ```
+
+- exec client :
+  ```sh
+    ./client
+  ```
