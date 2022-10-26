@@ -1,4 +1,4 @@
-# C_messenger
+# C-messenger
 
 ## Description
 
